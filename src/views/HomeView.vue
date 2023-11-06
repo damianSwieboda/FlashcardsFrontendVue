@@ -3,5 +3,5 @@
 </template>
 
 <script lang="ts" setup>
-import HeroElement from '@/components/icons/HeroElement.vue';
+import HeroElement from '@/components/HeroElement.vue';
 </script>

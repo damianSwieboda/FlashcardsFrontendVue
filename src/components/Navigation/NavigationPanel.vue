@@ -1,17 +1,17 @@
 <template>
-  <Disclosure as="nav"  v-on:scroll="handleScroll" :class="[ variableNavStyles.BackgroundColor,'transition-all', 'duration-2000', 'fixed','top-0', 'left-0', 'w-screen', 'z-10']">
+  <Disclosure as="nav"  v-on:scroll="handleScroll" :class="[reactiveStyles.navBarColor,'transition-all', 'duration-2000', 'fixed','top-0', 'left-0', 'w-screen', 'z-20']">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <!-- variable navigation height  -->
-        <div :class="[variableNavStyles.Height, 'flex', 'justify-between']">
+        <div :class="[reactiveStyles.navBarHeight, 'flex', 'justify-between']">
           
           <div class="flex">
             <company-logo/>            
           </div>
-          <div class="hidden sm:ml-6 sm:flex sm:items-center ">
+          <div class="hidden lg:ml-6 lg:flex lg:items-center ">
                     <!-- variable navlinks color  -->
-            <nav-links-large class="mr-8 h-16"/>
+            <nav-links-large :class="[reactiveStyles.navLinksTextColor]"/>
           <!-- button  --><!-- variable button color height  --><!-- variable button text  -->
-            <a href="#" :class="[variableNavStyles.ButtonTextColor, variableNavStyles.ButtonWidth, variableNavStyles.ButtonBackgroundColor,  'px-12', 'rounded-3xl', 'mr-8', 'text-base', 'font-semibold',  'shadow-sm', 'transition-transform', 'transform', 'hover:-translate-y-0.5']">
+            <a href="#" :class="[reactiveStyles.buttonStyles,  'px-12', 'rounded-3xl', 'mr-8', 'text-base', 'font-semibold',  'shadow-sm', 'transition-transform', 'transform', 'hover:-translate-y-0.5']">
               <RouterLink to="/pricing">PRICING</RouterLink>
               
             </a>
@@ -40,33 +40,32 @@
 
   const isScrolled = ref(false)
 
-  const variableNavStyles = computed(()=>{
+  const reactiveStyles = computed(()=>{
     return {
-      BackgroundColor: {
+      navBarColor: {
         'bg-white': isScrolled.value,
         'bg-transparent': !isScrolled.value,
         'transition-bg duration-300': true,
 
       },
-      Height: {
+      navBarHeight: {
         'h-12': isScrolled.value,
-        'h-32	': !isScrolled.value,
+        'h-24	': !isScrolled.value,
         'transition-h duration-300': true,
 
       },
-      ButtonWidth: {
+      buttonStyles: {
         'py-2.5': isScrolled.value,
         'py-3.5	': !isScrolled.value,
-        
-      },
-      ButtonTextColor: {
         'text-white': isScrolled.value,
-        'text-pink-500': !isScrolled.value
-      },
-      ButtonBackgroundColor: {
+        'text-pink-500': !isScrolled.value,
         'bg-pink-500': isScrolled.value,
-        'bg-transparent': !isScrolled.value
+        'bg-white': !isScrolled.value             
       },
+      navLinksTextColor:{
+        'text-white': !isScrolled.value,
+        'text-gray-500': isScrolled.value
+      }
     }
     }
   )

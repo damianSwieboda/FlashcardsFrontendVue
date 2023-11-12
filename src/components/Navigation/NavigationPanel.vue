@@ -5,15 +5,21 @@
         <div :class="[reactiveStyles.navBarHeight, 'flex', 'justify-between']">
             <company-logo/>            
           <div class="hidden lg:ml-6 lg:flex lg:items-center ">
+
             <nav-links-large :class="[reactiveStyles.navLinksTextColor]"/>
+
             <a :class="[reactiveStyles.buttonStyles,  'px-12', 'rounded-3xl', 'mr-8', 'text-base', 'font-semibold',  'shadow-sm', 'transition-transform', 'transform', 'hover:-translate-y-0.5']">
               <RouterLink to="/pricing">PRICING</RouterLink>
             </a>
+
             <desktop-user-dropable-menu />
+          
           </div>
+
           <hamburger-menu-button/>
         </div>
       </div>
+
       <dropable-mobile-menu/>  
   </Disclosure>
 </template>

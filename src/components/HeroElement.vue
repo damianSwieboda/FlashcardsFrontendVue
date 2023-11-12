@@ -1,5 +1,5 @@
 <template>
-  <hero-element/>
+  <the-hero/>
 
       <!-- CTA section -->
   <div class="bg-white">
@@ -165,7 +165,7 @@
   import { CloudArrowUpIcon, LockClosedIcon, ServerIcon} from '@heroicons/vue/20/solid'
   import { defineComponent, h } from 'vue'
 
-  import HeroElement from '@/components/Hero/HeroElement.vue'
+  import TheHero from '@/components/Hero/TheHero.vue'
 
 const features = [
   {

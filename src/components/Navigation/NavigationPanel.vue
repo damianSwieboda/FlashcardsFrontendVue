@@ -3,28 +3,18 @@
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <!-- variable navigation height  -->
         <div :class="[reactiveStyles.navBarHeight, 'flex', 'justify-between']">
-          
-          <div class="flex">
             <company-logo/>            
-          </div>
           <div class="hidden lg:ml-6 lg:flex lg:items-center ">
-                    <!-- variable navlinks color  -->
             <nav-links-large :class="[reactiveStyles.navLinksTextColor]"/>
-          <!-- button  --><!-- variable button color height  --><!-- variable button text  -->
-            <a href="#" :class="[reactiveStyles.buttonStyles,  'px-12', 'rounded-3xl', 'mr-8', 'text-base', 'font-semibold',  'shadow-sm', 'transition-transform', 'transform', 'hover:-translate-y-0.5']">
+            <a :class="[reactiveStyles.buttonStyles,  'px-12', 'rounded-3xl', 'mr-8', 'text-base', 'font-semibold',  'shadow-sm', 'transition-transform', 'transform', 'hover:-translate-y-0.5']">
               <RouterLink to="/pricing">PRICING</RouterLink>
-              
             </a>
             <desktop-user-dropable-menu />
           </div>
-          
           <hamburger-menu-button/>
-
         </div>
       </div>
-      
       <dropable-mobile-menu/>  
-
   </Disclosure>
 </template>
   
@@ -46,13 +36,11 @@
         'bg-white': isScrolled.value,
         'bg-transparent': !isScrolled.value,
         'transition-bg duration-300': true,
-
       },
       navBarHeight: {
         'h-12': isScrolled.value,
         'h-24	': !isScrolled.value,
         'transition-h duration-300': true,
-
       },
       buttonStyles: {
         'py-2.5': isScrolled.value,

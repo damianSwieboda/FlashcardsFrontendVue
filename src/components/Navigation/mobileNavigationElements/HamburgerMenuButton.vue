@@ -20,6 +20,6 @@
     import { computed } from "vue"
 
     const UIStore = useUIStore()
-    const open = computed(()=> UIStore.isMenuOpened)
+    const open = computed(()=> UIStore.isMenuOpen)
     const OPEN_OR_CLOSE_MENU = UIStore.OPEN_OR_CLOSE_MENU
 </script> 

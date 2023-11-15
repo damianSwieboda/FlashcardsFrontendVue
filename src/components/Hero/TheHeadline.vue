@@ -45,15 +45,15 @@
 
 <style scoped>
 .polskiego {
-  color: rgb(242, 62, 12);
+  color: rgb(255, 72, 30);
 }
 
 .angielskiego {
-  color: rgb(255, 0, 187);
+  color: rgb(254, 64, 204);
 }
 
 .historii {
-  color: #f9ab00;
+  color: #fdb416;
 }
 
 </style>

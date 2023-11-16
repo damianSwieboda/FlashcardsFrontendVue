@@ -1,10 +1,10 @@
 <template>
-  <Disclosure as="nav"  v-on:scroll="handleScroll" :class="[reactiveStyles.navBarColor,'transition-all', 'duration-2000', 'fixed','top-0', 'left-0', 'w-screen', 'z-20']">
+  <Disclosure as="nav" v-slot="open"  v-on:scroll="handleScroll" :class="[reactiveStyles.navBarColor,'transition-all', 'duration-2000', 'fixed','top-0', 'left-0', 'w-screen', 'z-20']">
       <div class="mx-auto max-w-7xl lg:px-8">
         <div :class="[reactiveStyles.navBarHeight, 'relative', 'px-4', 'sm:px-6', 'flex', 'justify-between']">
           <company-logo/> 
           <the-menu/>           
-          <hamburger-menu-button/>
+          <hamburger-menu-button :open="open"/>
         </div>
       </div>
 
@@ -19,7 +19,6 @@
   import CompanyLogo from '@/Components/Navigation/CompanyLogo.vue';
   import TheMenu from '@/Components/Navigation/desktopNavigationElements/TheMenu.vue'
   import HamburgerMenuButton from '@/Components/Navigation/mobileNavigationElements/HamburgerMenuButton.vue'
-  import DropableMobileMenu from '@/Components/Navigation/mobileNavigationElements/DropableMobileMenu.vue';
 
   import { useUIStore } from '@/stores/ui';
 

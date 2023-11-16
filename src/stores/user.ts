@@ -4,7 +4,7 @@ import { ref } from "vue"
 
 export const useUserStore = defineStore("user", ()=>{
 
-    const isLoggedIn = ref(false)
+    const isLoggedIn = ref(true)
     
     const LOGIN_USER = () => {
         isLoggedIn.value = true

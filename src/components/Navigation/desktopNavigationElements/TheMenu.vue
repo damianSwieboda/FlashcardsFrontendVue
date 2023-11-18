@@ -1,6 +1,6 @@
 <template>          
     <div 
-      v-show="open"
+      v-show="isNavigationMenuOpen"
       :class="[reactiveStyles.dropableMenuTopSpacing, 'text-gray-500', 'absolute','left-0','lg:static', 'lg:ml-6', 'lg:flex', 'lg:items-center', 'bg-white', 'lg:bg-transparent', 'w-screen', 'lg:w-fit']"
     >
         
@@ -24,32 +24,38 @@
 
 
 <script lang="ts" setup>
-  import { computed, ref } from "vue"
+  import { computed, onMounted, onUnmounted } from "vue"
 
   import UserDropableMenu from '@/Components/Navigation/desktopNavigationElements/UserDropableMenu.vue';
   import NavLinks from '@/Components/Navigation/desktopNavigationElements/NavLinks.vue';
+
+  import debounce from '@/utils/debounce'
+ 
   import { useUIStore } from '@/stores/ui';
   import { useUserStore } from "@/stores/user";
 
   const userStore = useUserStore()
+  const uiStore = useUIStore()
+  
   const isLoggedIn = computed(()=> userStore.isLoggedIn)
-
-  const UIStore = useUIStore()
-  const isPageScrolled = computed(()=> UIStore.isPageScrolled)
-
-  const screenWidth = ref(window.innerWidth)
+  const isPageScrolled = computed(()=> uiStore.isPageScrolled)
+  const isNavigationMenuOpen = computed(()=> uiStore.isNavigationMenuOpen)
 
 
-  const open = computed(()=> {
-    if(UIStore.isNavigationMenuOpen && screenWidth.value < 1024){
-      return true
-    }
-    if(screenWidth.value > 1024){
-      return true
-    }
-    return false
-  })
+  const getScreenWidth = () => window.innerWidth
+  const checkIfNavShouldBeVisible =  () =>  getScreenWidth() > 1024 ? uiStore.OPEN_NAVIGATION_MENU() : uiStore.CLOSE_NAVIGATION_MENU()
+  
 
+  onMounted(() => {
+    checkIfNavShouldBeVisible()
+    window.addEventListener("resize", debounce( checkIfNavShouldBeVisible, 200));
+  });
+
+  onUnmounted(() => {
+    window.removeEventListener("resize", debounce( checkIfNavShouldBeVisible, 200));
+  });
+
+  
   const reactiveStyles = computed(()=>{
     return {
       buttonStyles: {
@@ -72,6 +78,24 @@
     }
     }
   )
+
+
+
+    // const windowInnerWidth = ref(window.innerWidth)
+
+
+
+  //   const isNavVisible = computed(()=> {
+  //   if(windowInnerWidth.value >= 1024){
+      
+  //     return true
+  //   }    else if (uiStore.isNavigationMenuOpen && windowInnerWidth.value < 1024) {
+  //     return true
+  //   }  else {
+  //     return false
+
+  //   }  
+  // })
 </script>
 
 

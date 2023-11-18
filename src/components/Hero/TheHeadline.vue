@@ -12,6 +12,7 @@
 <script lang="ts" setup>
 
     import { ref, computed, onMounted, onUnmounted } from 'vue'
+    import nextElementInList from '@/utils/nextElementInList'
 
     const currentSubject = ref('polskiego')
 
@@ -30,13 +31,7 @@
         }, 2000)
     }
 
-    const nextElementInList = (list: string[], element: string) => {
-        const positionOfElement = list.indexOf(element);
-        const nextElementIndex = (positionOfElement + 1) % list.length
-        const nextElement = list[nextElementIndex]
-        return nextElement
-    }
-
+   
     onMounted(changeSubject)
     onUnmounted(()=> clearInterval(interval.value))
 </script>
@@ -45,15 +40,18 @@
 
 <style scoped>
 .polskiego {
-  color: rgb(255, 72, 30);
+  /* color: rgb(255, 72, 30); */
+    color: white
 }
 
 .angielskiego {
-  color: rgb(254, 64, 204);
+  /* color: rgb(254, 64, 204); */
+    color: white
 }
 
 .historii {
-  color: #fdb416;
+  /* color: #fdb416; */
+    color: white
 }
 
 </style>

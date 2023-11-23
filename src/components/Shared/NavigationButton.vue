@@ -44,7 +44,6 @@
 
     const buttonClassStyles = computed(()=>{
 
-        // if(type.value === "navCallToAction")  return isPageScrolled.value === true ? {navButtonWhenScrolled: true} : {navButtonWhenNotScrolled: true}
 
         return {
             [type.value]: true
@@ -59,9 +58,9 @@ button {
   @apply px-5 py-3 font-medium;
 } */
 
-
 .navButton{
     @apply inline-block w-9/12 lg:w-fit whitespace-nowrap overflow-hidden lg:px-8 rounded-3xl text-base font-semibold shadow-sm transition-transform transform hover:-translate-y-0.5
 }
 
 </style>
+ 

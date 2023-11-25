@@ -3,8 +3,8 @@
       <div class="mx-auto max-w-7xl lg:px-8">
         <div :class="[reactiveStyles.navBarHeight, 'relative', 'px-4', 'sm:px-6', 'flex', 'justify-between']">
           <company-logo/> 
-          <the-menu/>           
-          <hamburger-menu-button />
+          <navigation-content/>           
+          <the-hamburger />
         </div>
       </div>
 
@@ -16,9 +16,9 @@
   import { computed, onMounted } from "vue"
   import { Disclosure } from '@headlessui/vue'
 
-  import CompanyLogo from '@/Components/Navigation/CompanyLogo.vue';
-  import TheMenu from '@/Components/Navigation/desktopNavigationElements/TheMenu.vue'
-  import HamburgerMenuButton from '@/Components/Navigation/mobileNavigationElements/HamburgerMenuButton.vue'
+  import CompanyLogo from '@/Components/Shared/CompanyLogo.vue';
+  import NavigationContent from '@/Components/Navigation/NavigationContent.vue'
+  import TheHamburger from '@/Components/Navigation/TheHamburger.vue'
 
   import { useUIStore } from '@/stores/ui';
 
@@ -27,11 +27,11 @@
   const PAGE_IS_SCROLLED = UIStore.PAGE_IS_SCROLLED
   const PAGE_IS_NOT_SCROLLED = UIStore.PAGE_IS_NOT_SCROLLED
 
-
+ // move reactive styles to diffrent folder
   const reactiveStyles = computed(()=>{
     return {
       navBarColor: {
-        'bg-white': isPageScrolled.value,
+        'bg-white': isPageScrolled.value, // or there is open menu when width is below lg
         'bg-transparent': !isPageScrolled.value,
         'transition-bg duration-300': true,
       },

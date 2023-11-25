@@ -10,7 +10,7 @@ export const useNavigationStore = defineStore('navigation', ()=>{
         {text: "Figma", url: "/"},
         {text: "Features", url: "/features"},
         {text: "About", url: "/about"},
-        {text: "Pricing", url: "/pricingvu"},
+        {text: "Pricing", url: "/pricing"},
     ]
 
     const userNavigationList = [

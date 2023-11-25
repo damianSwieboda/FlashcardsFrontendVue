@@ -4,7 +4,7 @@
 
     <DisclosureButton 
         class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-        @click="OPEN_OR_CLOSE_MENU"
+        @click="actions"
     >
         <span class="absolute -inset-0.5" />
         <span class="sr-only">Open main menu</span>
@@ -20,7 +20,20 @@
     import { useUIStore } from '@/stores/ui';
     import { computed } from "vue"
 
-    const UIStore = useUIStore()
-    const open = computed(()=> UIStore.isNavigationMenuOpen)
-    const OPEN_OR_CLOSE_MENU = UIStore.OPEN_OR_CLOSE_NAVIGATION_MENU
+    const uiStore = useUIStore()
+    const open = computed(()=> uiStore.isNavigationMenuOpen)
+   
+    const getScreenWidth = () => window.innerWidth
+    import { useUserStore } from '@/stores/user';
+
+const userStore = useUserStore()
+
+const isLoggedIn = computed(()=> userStore.isLoggedIn)
+
+const actions = () => {
+    OPEN_OR_CLOSE_NAVIGATION_MENU()
+    if(isLoggedIn.value && uiStore.isNavigationMenuOpen && getScreenWidth() < 1024 ) return uiStore.OPEN_USER_MENU()
+}
+
+    const OPEN_OR_CLOSE_NAVIGATION_MENU = uiStore.OPEN_OR_CLOSE_NAVIGATION_MENU
 </script> 

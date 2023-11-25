@@ -8,7 +8,7 @@
 
 <script lang="ts" setup>
 
-    import PlayButton from '@/components/Hero/PlayButton.vue'
+    import PlayButton from '@/components/HomePage/TheHero/PlayButton.vue'
 
     defineProps({
         thumbnailLink: String

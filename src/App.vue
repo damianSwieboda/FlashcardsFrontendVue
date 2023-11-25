@@ -1,10 +1,10 @@
 
 <template>
-  <navigation-panel/>
+  <navigation-bar/>
   <RouterView />
 </template>
 
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
-import NavigationPanel from '@/components/Navigation/NavigationPanel.vue';
+import NavigationBar from '@/components/Navigation/NavigationBar.vue';
 </script>

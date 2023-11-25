@@ -3,16 +3,18 @@
     v-show="isNavigationMenuOpen"
     :class="[reactiveStyles.dropableMenuTopSpacing, 'text-gray-500', 'w-screen', 'absolute','left-0','lg:static', 'lg:ml-6', 'lg:flex', 'lg:items-center', 'bg-white', 'lg:bg-transparent', 'w-screen', 'lg:w-fit']"
   >
-    <nav-links :class="[reactiveStyles.navLinksTextColor]"/>
+    <navigation-links :class="[reactiveStyles.navLinksTextColor]"/>
+    
     <div class="pt-5 w-screen h-fit flex justify-center lg:pt-0 lg:w-fit  ">
       <navigation-button text="Try for free" destination="/pricing" type="navButton" :class="[reactiveStyles.navButtonStyles]"/>
     </div>
+    
     <div class="py-5 w-screen h-fit flex justify-center lg:pt-0 lg:w-fit  ">
       <user-dropable-menu v-if="isLoggedIn" />
-    <div v-else class="px-8 pt-5 lg:flex lg:space-x-12 w-fit">      
-    <navigation-button text="Login" destination="/login" type="plainTextButton" :class="reactiveStyles.navLinksTextColor"/>
-    </div>
-
+    
+      <div v-else class="px-8 lg:pt-5 lg:flex lg:space-x-12 w-fit">      
+      <navigation-button text="Login" destination="/login" type="plainTextButton" :class="reactiveStyles.navLinksTextColor"/>
+      </div>
 
     </div>
 
@@ -24,10 +26,10 @@
 
 
 <script lang="ts" setup>
-  import { computed, ref, onMounted, onUnmounted } from "vue"
+  import { computed, onMounted, onUnmounted} from "vue"
 
-  import UserDropableMenu from "@/Components/Navigation/desktopNavigationElements/UserDropableMenu.vue";
-  import NavLinks from "@/Components/Navigation/desktopNavigationElements/NavLinks.vue";
+  import UserDropableMenu from "@/Components/Navigation/UserNavigation/UserDropableMenu.vue";
+  import NavigationLinks from "@/Components/Navigation/NavigationLinks.vue";
   import NavigationButton from "@/components/Shared/NavigationButton.vue"
   import debounce from '@/utils/debounce'
  
@@ -37,25 +39,30 @@
   const userStore = useUserStore()
   const uiStore = useUIStore()
   import { useRoute } from "vue-router"
-
   const route = useRoute()
-
 
   const isLoggedIn = computed(()=> userStore.isLoggedIn)
   const isPageScrolled = computed(()=> uiStore.isPageScrolled)
   const isNavigationMenuOpen = computed(()=> uiStore.isNavigationMenuOpen)
+  
 
-  const getScreenWidth = () => window.innerWidth
-  const checkIfNavShouldBeVisible = () =>  getScreenWidth() > 1024 ? uiStore.OPEN_NAVIGATION_MENU() : uiStore.CLOSE_NAVIGATION_MENU()
+
+  const getScreenWidth = () => window.innerWidth 
+  const checkIfNavShouldBeVisible = () =>  getScreenWidth() >= 1024 ? uiStore.OPEN_NAVIGATION_MENU() : uiStore.CLOSE_NAVIGATION_MENU()
+  const checkIfUserNavShouldBeVisible = () => (getScreenWidth() >= 1024 && isLoggedIn) ? uiStore.CLOSE_USER_MENU() : false 
   
 
   onMounted(() => {
     checkIfNavShouldBeVisible()
-    window.addEventListener("resize", debounce( checkIfNavShouldBeVisible, 200));
+    window.addEventListener("resize", debounce( checkIfNavShouldBeVisible, 100));
+    window.addEventListener("resize", debounce( checkIfUserNavShouldBeVisible, 100));
+
   });
 
   onUnmounted(() => {
-    window.removeEventListener("resize", debounce( checkIfNavShouldBeVisible, 200));
+    window.removeEventListener("resize", debounce( checkIfNavShouldBeVisible, 100));
+    window.removeEventListener("resize", debounce( checkIfUserNavShouldBeVisible, 100));
+
   });
 
 
@@ -67,15 +74,12 @@
     return true
   } )
 
-
   // logic which by we display bright elements on dark background, and dark elements od bright background in NavBar
   const textStyleLogic = computed(()=>{
-      
     if(isBrightBackground.value && !isPageScrolled.value ) return false
     if(isBrightBackground.value && isPageScrolled.value ) return false
     if(!isBrightBackground.value && !isPageScrolled.value )return true
     if(!isBrightBackground.value && isPageScrolled.value ) return false
-
     return true
   })
 

@@ -1,7 +1,7 @@
 
 <template>
   <navigation-bar/>
-  <RouterView />
+  <RouterView/>
 </template>
 
 <script setup lang="ts">

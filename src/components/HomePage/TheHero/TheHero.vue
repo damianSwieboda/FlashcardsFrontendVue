@@ -3,7 +3,7 @@
         <div class="absolute  top-0 left-0 h-[35%] w-full bg-gradient-to-b from-[#4300ca] to-transparent -z-10 ">
         </div>
 
-        <div class="mx-auto max-w-7xl py-24 sm:py-48 lg:py-auto lg:flex z-10 ">
+        <div class="mx-auto max-w-7xl py-24 lg:py-48 lg:py-auto lg:flex z-10 ">
             <the-headline />    
             <the-video thumbnailLink='src/assets/heroVideoThumbnail.jpg'/>
         </div>

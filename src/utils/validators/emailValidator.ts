@@ -1,9 +1,3 @@
 export const emailValidator = (email: string) => {
-
-    const isEmailValid = () => {
-        return email.trim().match('^[w.-]+@[a-zA-Zd.-]+.[a-zA-Z]{2,}$') ? true : false
-    }
-
-    return isEmailValid
+    return /^\w+[\w.-]*@\w+([.-]?\w+)*\.\w{2,}$/.test(email.trim());
 }
-

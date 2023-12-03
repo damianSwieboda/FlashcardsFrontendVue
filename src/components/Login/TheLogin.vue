@@ -3,11 +3,11 @@
 
         <div class="sm:mx-auto sm:w-full sm:max-w-md"><!--  -->
             <img class="mx-auto h-10 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company" />
-            <h2 class="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in to your account</h2>
+            <h2 class="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Log in to your account</h2>
         </div>
 
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
-            <div class="bg-white px-6 pb-5 lg:p-12 shadow sm:rounded-lg sm:px-12">
+            <div class="bg-white px-6 py-5 lg:p-12 shadow sm:rounded-lg sm:px-12">
 
                 <login-form />
 
@@ -59,7 +59,6 @@
     html{
         height: 100%;
         --tw-bg-opacity: 1;
-        background-color: red;
         /* background-color: rgb(249 250 251 / var(--tw-bg-opacity)); */
 
     }

@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from "@/views/HomeView.vue"
 import PricingView from "@/views/PricingView.vue"
 import LoginView from "@/views/LoginView.vue"
+import AboutView from "@/views/AboutView.vue"
 
 import { useUIStore } from "@/stores/ui"
 
@@ -16,6 +17,11 @@ const router = createRouter({
       path: '/',
       name: 'Home',
       component: HomeView
+    },
+    {
+      path:'/about',
+      name:'About',
+      component: AboutView
     },
     {
       path: '/pricing',

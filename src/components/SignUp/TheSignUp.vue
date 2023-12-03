@@ -1,19 +1,27 @@
+
 <template>
     <div class="flex min-h-full flex-1 flex-col justify-center py-12 lg:py-28 sm:px-6 lg:px-8 bg-gray-50">
 
-        <div class="sm:mx-auto sm:w-full sm:max-w-md"><!--  -->
-            <img class="mx-auto h-10 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company" />
-            <h2 class="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Log in to your account</h2>
+        <div class="sm:mx-auto sm:w-full sm:max-w-md">
+            <h2 class="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Create account</h2>
+            <p class="lg:mt-5 text-center text-sm text-gray-500">
+               Already a member?
+                {{ ' ' }}
+                <a href="#" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+                >
+                    Sign in to your account here  
+                </a>
+            </p>
         </div>
 
-        <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
+        <div class="mt-4 sm:mx-auto sm:w-full sm:max-w-[480px]">
             <div class="bg-white px-6 py-5 lg:p-12 shadow sm:rounded-lg sm:px-12">
 
-                <login-form />
+                <sign-up-form />
 
 
                 <div>
-                    <div class="relative mt-10">
+                    <div class="relative mt-5">
                         <div class="absolute inset-0 flex items-center" aria-hidden="true">
                             <div class="w-full border-t border-gray-200" />
                         </div>
@@ -42,17 +50,15 @@
                 </div>
             </div>
 
-            <p class="mt-5 lg:mt-10 text-center text-sm text-gray-500">
-                Not a member?
-                {{ ' ' }}
-                <a href="#" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Start a 14 day free trial</a>
-            </p>
+
         </div>
+
     </div>
+    
 </template>
 
 <script lang="ts" setup>
-    import LoginForm from "@/Components/Login/LoginForm.vue"
+    import SignUpForm from "@/Components/SignUp/SignUpForm.vue"
 </script>
 
 <style scoped>

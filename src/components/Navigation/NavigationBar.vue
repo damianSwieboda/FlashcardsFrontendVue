@@ -2,13 +2,13 @@
   <Disclosure as="nav"  v-on:scroll="handleScroll" :class="[reactiveStyles.navBarColor,'transition-all', 'duration-2000', 'fixed','top-0', 'left-0', 'w-screen', 'z-20']">
       <div class="mx-auto max-w-7xl lg:px-8">
         <div :class="[reactiveStyles.navBarHeight, 'relative', 'px-4', 'sm:px-6', 'flex', 'justify-between']">
+          
           <company-logo/> 
           <navigation-content/>           
           <the-hamburger />
+
         </div>
       </div>
-
-      <!-- <dropable-mobile-menu/>   -->
   </Disclosure>
 </template>
   

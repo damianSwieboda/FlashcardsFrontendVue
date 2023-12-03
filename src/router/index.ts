@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from "@/views/HomeView.vue"
 import PricingView from "@/views/PricingView.vue"
-import LoginView from "@/views/LoginView.vue"
+import SignInView from "@/views/SignInView.vue"
 import AboutView from "@/views/AboutView.vue"
-
+import SignUpView from "@/views/SignUpView.vue"
 import { useUIStore } from "@/stores/ui"
 
 const router = createRouter({
@@ -29,9 +29,14 @@ const router = createRouter({
       component: PricingView
     },
     {
-      path: '/login',
-      name: 'Login',
-      component: LoginView
+      path: '/signin',
+      name: 'SignIn',
+      component: SignInView
+    },
+    {
+      path:'/signup',
+      name:'SignUp',
+      component: SignUpView
     }
   ]
 })

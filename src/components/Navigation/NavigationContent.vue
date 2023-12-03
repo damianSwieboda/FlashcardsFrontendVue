@@ -6,14 +6,14 @@
     <navigation-links :class="[reactiveStyles.navLinksTextColor]"/>
     
     <div class="pt-5 w-screen h-fit flex justify-center lg:pt-0 lg:w-fit  ">
-      <navigation-button text="Try for free" destination="/pricing" type="navButton" :class="[reactiveStyles.navButtonStyles]"/>
+      <navigation-button text="Try for free" destination="/signup" type="navButton" :class="[reactiveStyles.navButtonStyles]"/>
     </div>
     
     <div class="py-5 w-screen h-fit flex justify-center lg:pt-0 lg:w-fit  ">
-      <user-dropable-menu v-if="isLoggedIn" />
+      <user-dropable-menu v-if="isSignIn" />
     
       <div v-else class="px-8 lg:pt-5 lg:flex lg:space-x-12 w-fit">      
-      <navigation-button text="Login" destination="/login" type="plainTextButton" :class="reactiveStyles.navLinksTextColor"/>
+      <navigation-button text="Sign in" destination="/signin" type="plainTextButton" :class="reactiveStyles.navLinksTextColor"/>
       </div>
 
     </div>
@@ -41,7 +41,7 @@
   import { useRoute } from "vue-router"
   const route = useRoute()
 
-  const isLoggedIn = computed(()=> userStore.isLoggedIn)
+  const isSignIn = computed(()=> userStore.isSignIn)
   const isPageScrolled = computed(()=> uiStore.isPageScrolled)
   const isNavigationMenuOpen = computed(()=> uiStore.isNavigationMenuOpen)
   
@@ -49,7 +49,7 @@
 
   const getScreenWidth = () => window.innerWidth 
   const checkIfNavShouldBeVisible = () =>  getScreenWidth() >= 1024 ? uiStore.OPEN_NAVIGATION_MENU() : uiStore.CLOSE_NAVIGATION_MENU()
-  const checkIfUserNavShouldBeVisible = () => (getScreenWidth() >= 1024 && isLoggedIn) ? uiStore.CLOSE_USER_MENU() : false 
+  const checkIfUserNavShouldBeVisible = () => (getScreenWidth() >= 1024 && isSignIn) ? uiStore.CLOSE_USER_MENU() : false 
   
 
   onMounted(() => {

@@ -3,7 +3,7 @@
         <p class="text-xl font-base tracking-tight text-white sm:text-4xl lg:text-3xl">Figma</p>
         <h1 class="mt-5 max-w-xl text-4xl font-bold tracking-tight text-white sm:text-6xl">Fiszki do matury<br>z <span :class="[subjectStyle]">{{ currentSubject }}</span></h1>
         <div class="mt-10 flex items-center gap-x-6">
-            <navigation-button text="Get started" type="primary" destination="/login"/>
+            <navigation-button text="Get started" type="primary" destination="/signin"/>
         </div>
     </div>
 </template>

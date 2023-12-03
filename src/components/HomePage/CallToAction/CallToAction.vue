@@ -5,8 +5,8 @@
                 <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Boost your learning.<br />Start using our app today.</h2>
                 <p class="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-600">Incididunt sint fugiat pariatur cupidatat consectetur sit cillum anim id veniam aliqua proident excepteur commodo do ea.</p>
             <div class="mt-10 flex items-center justify-center gap-x-6">
-                <navigation-button text="Get started" type="primary" destination="/login"/>
-                <navigation-button text="Learn more" type="plainText" destination="/login">
+                <navigation-button text="Get started" type="primary" destination="/signin"/>
+                <navigation-button text="Learn more" type="plainText" destination="/signin">
                     <span aria-hidden="true"> →</span>
                 </navigation-button>
             </div>

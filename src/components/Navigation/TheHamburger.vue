@@ -28,11 +28,11 @@
 
 const userStore = useUserStore()
 
-const isLoggedIn = computed(()=> userStore.isLoggedIn)
+const isSignIn = computed(()=> userStore.isSignIn)
 
 const actions = () => {
     OPEN_OR_CLOSE_NAVIGATION_MENU()
-    if(isLoggedIn.value && uiStore.isNavigationMenuOpen && getScreenWidth() < 1024 ) return uiStore.OPEN_USER_MENU()
+    if(isSignIn.value && uiStore.isNavigationMenuOpen && getScreenWidth() < 1024 ) return uiStore.OPEN_USER_MENU()
 }
 
     const OPEN_OR_CLOSE_NAVIGATION_MENU = uiStore.OPEN_OR_CLOSE_NAVIGATION_MENU

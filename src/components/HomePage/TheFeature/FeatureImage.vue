@@ -1,5 +1,4 @@
 <template>
-    <!-- <div class="flex items-start justify-start lg:order-last">  -->
     <div :class="imageContainerStyle">
         <img :src="props.imageLink"
             alt="Feature description"
@@ -30,6 +29,7 @@
             [props.imagePlacing]: true
         }
     })
+    
 </script>
 
 

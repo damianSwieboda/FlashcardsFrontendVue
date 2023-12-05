@@ -5,15 +5,32 @@
   >
     <navigation-links :class="[reactiveStyles.navLinksTextColor]"/>
     
-    <div class="pt-5 w-screen h-fit flex justify-center lg:pt-0 lg:w-fit  ">
-      <navigation-button text="Try for free" destination="/signup" type="navButton" :class="[reactiveStyles.navButtonStyles]"/>
-    </div>
+    <RouterLink to="/signup">
+      <div class="pt-5 w-screen h-fit flex justify-center lg:pt-0 lg:w-fit  ">
+
+        <navigation-button 
+          text="Try for free" 
+          type="navButton" 
+          :class="[reactiveStyles.navButtonStyles]"
+        />     
+
+      </div>
+    </RouterLink>
+
     
     <div class="py-5 w-screen h-fit flex justify-center lg:pt-0 lg:w-fit  ">
       <user-dropable-menu v-if="isSignIn" />
     
-      <div v-else class="px-8 lg:pt-5 lg:flex lg:space-x-12 w-fit">      
-      <navigation-button text="Sign in" destination="/signin" type="plainTextButton" :class="reactiveStyles.navLinksTextColor"/>
+      <div v-else class="px-8 lg:pt-5 lg:flex lg:space-x-12 w-fit">
+        <RouterLink to="/signin">
+
+          <navigation-button 
+            text="Sign in" 
+            type="plainTextButton" 
+            :class="reactiveStyles.navLinksTextColor"
+          />
+
+        </RouterLink>
       </div>
 
     </div>

@@ -1,10 +1,20 @@
 <template>
-    <div class="mx-auto max-w-2xl mt-10 pl-16 lg:pl-12 lg:pr-0 lg:mx-0 lg:flex-auto">
-        <p class="text-xl font-base tracking-tight text-white sm:text-4xl lg:text-3xl">Figma</p>
-        <h1 class="mt-5 max-w-xl text-4xl font-bold tracking-tight text-white sm:text-6xl">Fiszki do matury<br>z <span :class="[subjectStyle]">{{ currentSubject }}</span></h1>
+    <div class="mx-auto max-w-2xl mt-10 pl-4 lg:pl-12 lg:pr-0 lg:mx-0 lg:flex-auto">
+        
+        <p class="text-xl font-base tracking-tight text-white sm:text-4xl lg:text-3xl"
+        >
+            Figma
+        </p>
+
+        <h1 class="mt-5 max-w-xl text-4xl font-bold tracking-tight text-white sm:text-6xl"
+        >
+            Fiszki do matury<br>z <span :class="[subjectStyle]">{{ currentSubject }}</span>
+        </h1>
+
         <div class="mt-10 flex items-center gap-x-6">
             <navigation-button text="Get started" type="primary" destination="/signin"/>
         </div>
+        
     </div>
 </template>
 

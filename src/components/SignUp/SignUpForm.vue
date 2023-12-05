@@ -31,7 +31,7 @@
                 />
             <p v-show="isPasswordNotValid" class="absolute text-sm text-rose-600 ml-1"
             >
-                Provide valid password
+                Atleast 8 characters, 1 lowercase, 1 uppercase, 1 number
             </p>
 
         </div>
@@ -51,21 +51,14 @@
                 Provide valid repeated password
             </p>
         </div>
-
+        
+        <terms-and-conditions-note/>
 
         <div>
             <button type="submit" class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Sign up</button>
         </div>
 
-        <p class="mt-5 lg:mt-10 text-center text-sm text-gray-500"
-                >
-                   By creating account you agree to
-                    {{ ' ' }}
-                    <router-link to="/signup">
-                    <a  class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
-                    Terms and Conditions
-                    </a></router-link>
-                 </p>
+
 
         
 
@@ -76,6 +69,7 @@
 import { emailValidator } from '@/utils/validators/emailValidator';
 import { passwordValidator } from '@/utils/validators/passwordValidator';
 import {ref, computed} from "vue"
+import TermsAndConditionsNote from "@/components/Shared/TermsAndConditionsNote.vue"
 
 
 
@@ -95,6 +89,7 @@ const isEmailNotValid = computed(() => {
 })
 
 const password = ref('')
+const repeatPassword = ref('')
 
 const isPasswordNotValid = computed(() => {
     console.log(password.value)

@@ -1,11 +1,9 @@
 <template>
     <button :class="[buttonClassStyles]">
-        <a>
-            <RouterLink :to="destination">
+        <span>
                 {{ text }}
-            </RouterLink>
             <slot></slot>
-        </a> 
+        </span> 
     </button>
 </template>
 
@@ -16,14 +14,6 @@
         text: {
             required: true,
             type: String
-        },
-        destination: {
-            required: true,
-            type: String,
-            default:'/page404',
-            validator(value: string){
-                return value.charAt(0) === "/"
-            }
         },
         type: {
             required: false,

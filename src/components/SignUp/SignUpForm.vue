@@ -68,6 +68,8 @@
 <script lang="ts" setup>
 import { emailValidator } from '@/utils/validators/emailValidator';
 import { passwordValidator } from '@/utils/validators/passwordValidator';
+import { repeatedPasswordValidator } from '@/utils/validators/repeatedPasswordValidator';
+
 import {ref, computed} from "vue"
 import TermsAndConditionsNote from "@/components/Shared/TermsAndConditionsNote.vue"
 
@@ -75,34 +77,24 @@ import TermsAndConditionsNote from "@/components/Shared/TermsAndConditionsNote.v
 
 
 const email = ref('')
-
-// const isEmailNotValid = computed(() => {
-//     const isEmailValid = emailValidator(email.value)
-//     if(email.value.length === 0) return false
-//     return !isEmailValid
-// })
+const password = ref('')
+const repeatPassword = ref('')
 
 const isEmailNotValid = computed(() => {
     const isEmailValid = emailValidator(email.value)
     if(email.value.length === 0) return false
     return !isEmailValid
 })
-
-const password = ref('')
-const repeatPassword = ref('')
-
 const isPasswordNotValid = computed(() => {
-    console.log(password.value)
     const isPasswordValid = passwordValidator(password.value)
     if(password.value.length === 0) return false
     return !isPasswordValid
 })
 
 const isRepeatedPasswordNotValid = computed(() => {
-    console.log(password.value)
-    const isPasswordValid = passwordValidator(password.value)
-    if(password.value.length === 0) return false
-    return !isPasswordValid
+    const isRepeatedPasswordValid = repeatedPasswordValidator(password.value, repeatPassword.value)
+    if(repeatPassword.value.length === 0) return false
+    return !isRepeatedPasswordValid
 })
 
 </script>

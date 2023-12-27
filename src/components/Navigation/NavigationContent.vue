@@ -22,15 +22,15 @@
       <user-dropable-menu v-if="isSignIn" />
     
       <div v-else class="px-8 lg:pt-5 lg:flex lg:space-x-12 w-fit">
-        <RouterLink to="/signin">
 
+        <RouterLink to="/signin">
           <navigation-button 
             text="Sign in" 
             type="plainTextButton" 
             :class="reactiveStyles.navLinksTextColor"
           />
-
         </RouterLink>
+        
       </div>
 
     </div>

@@ -1,4 +1,6 @@
 <template>
+    <navigation-bar/>
+
     <div class="bg-slate-50">
     
   
@@ -161,15 +163,7 @@
   </template>
   
   <script lang="ts" setup>
-  import { Dialog, DialogPanel } from '@headlessui/vue'
-  import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
-  
-  const navigation = [
-    { name: 'Product', href: '#' },
-    { name: 'Features', href: '#' },
-    { name: 'Resources', href: '#' },
-    { name: 'Company', href: '#' },
-  ]
+
   const timeline = [
     {
       name: 'Founded company',

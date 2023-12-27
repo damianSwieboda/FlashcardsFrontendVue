@@ -1,10 +1,13 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from "@/views/HomeView.vue"
-import PricingView from "@/views/PricingView.vue"
-import SignInView from "@/views/SignInView.vue"
-import AboutView from "@/views/AboutView.vue"
-import SignUpView from "@/views/SignUpView.vue"
+import HomeView from "@/views/public/HomeView.vue"
+import PricingView from "@/views/public/PricingView.vue"
+import SignInView from "@/views/public/SignInView.vue"
+import AboutView from "@/views/public/AboutView.vue"
+import SignUpView from "@/views/public/SignUpView.vue"
 import { useUIStore } from "@/stores/ui"
+import DashboardView from '@/views/app/DashboardView.vue'
+import PublicLayout from '@/views/PublicLayout.vue'
+import AppLayout from '@/views/AppLayout.vue'
 
 const router = createRouter({
   scrollBehavior() {
@@ -14,30 +17,27 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'Home',
-      component: HomeView
+      path:'/',
+      component: PublicLayout,
+      name:'PublicLayout',
+      redirect:"/",
+      children: [
+        { path: '/', name: 'Home', component: HomeView },
+        { path:'/about', name:'About', component: AboutView },
+        { path: '/pricing', name: 'Pricing', component: PricingView },
+        { path: '/signin', name: 'SignIn', component: SignInView },
+        { path:'/signup', name:'SignUp', component: SignUpView },
+        
+      ]
     },
     {
-      path:'/about',
-      name:'About',
-      component: AboutView
+      path:'/app',
+      component: AppLayout,
+      name:'AppLayout',
+      children: [
+        { path:'/app/dashboard', name:"Dashboard", component: DashboardView },
+      ]
     },
-    {
-      path: '/pricing',
-      name: 'Pricing',
-      component: PricingView
-    },
-    {
-      path: '/signin',
-      name: 'SignIn',
-      component: SignInView
-    },
-    {
-      path:'/signup',
-      name:'SignUp',
-      component: SignUpView
-    }
   ]
 })
 
@@ -46,8 +46,67 @@ router.beforeEach((to, from, next) => {
     next();
 });
 
-
 export default router
+
+
+    // {
+    //   path: '/',
+    //   name: 'Home',
+    //   component: HomeView
+    // },
+    // {
+    //   path:'/about',
+    //   name:'About',
+    //   component: AboutView
+    // },
+    // {
+    //   path: '/pricing',
+    //   name: 'Pricing',
+    //   component: PricingView
+    // },
+    // {
+    //   path: '/signin',
+    //   name: 'SignIn',
+    //   component: SignInView
+    // },
+    // {
+    //   path:'/signup',
+    //   name:'SignUp',
+    //   component: SignUpView
+    // },
+// routes: [
+//   {
+//     path: '/',
+//     name: 'Home',
+//     component: HomeView
+//   },
+//   {
+//     path:'/about',
+//     name:'About',
+//     component: AboutView
+//   },
+//   {
+//     path: '/pricing',
+//     name: 'Pricing',
+//     component: PricingView
+//   },
+//   {
+//     path: '/signin',
+//     name: 'SignIn',
+//     component: SignInView
+//   },
+//   {
+//     path:'/signup',
+//     name:'SignUp',
+//     component: SignUpView
+//   },
+//   {
+//     path:'/dashboard',
+//     name:"Dashboard",
+//     component: DashboardView
+//   }
+// ]
+
 // import { createRouter, createWebHashHistory } from "vue-router"
 
 // import HomeView from "@/views/HomeView.vue"

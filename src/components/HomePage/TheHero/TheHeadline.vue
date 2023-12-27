@@ -12,7 +12,9 @@
         </h1>
 
         <div class="mt-10 flex items-center gap-x-6">
-            <navigation-button text="Get started" type="primary" destination="/signin"/>
+            <RouterLink to="/dashboard">
+            <navigation-button text="Get started" type="primary"/>
+            </RouterLink>
         </div>
         
     </div>

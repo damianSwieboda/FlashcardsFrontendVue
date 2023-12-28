@@ -14,7 +14,7 @@
 
                 <div class="mt-10 flex items-center justify-center gap-x-6">
                     <navigation-button text="Get started" type="primary" destination="/signup"/>
-                    <navigation-button text="Learn more" type="plainText" destination="/features">
+                    <navigation-button text="Learn more" type="plainTextBlack" destination="/features">
                         <span aria-hidden="true"> →</span>
                     </navigation-button>
                 </div>

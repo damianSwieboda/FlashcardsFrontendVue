@@ -36,14 +36,11 @@
 
 </script>
 <style scoped>
-/* 
-button {
-  @apply px-5 py-3 font-medium;
-} */
 
 .primary{
     @apply rounded-3xl bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600
 }
+
 .navButton{
     @apply inline-block w-9/12 lg:w-fit whitespace-nowrap overflow-hidden lg:px-8 rounded-3xl text-base font-semibold shadow-sm transition-transform transform hover:-translate-y-0.5
 }
@@ -51,6 +48,19 @@ button {
 .plainText{
     @apply text-sm font-semibold leading-6 text-gray-900
 }
+
+.plainTextBlack{
+    @apply text-sm font-semibold leading-6 text-gray-900
+}
+
+.plainTextWhite{
+    @apply text-sm font-semibold leading-6 text-white
+}
+
+.dashboardHeroButton{
+    @apply rounded-3xl bg-purple-400 px-3.5 py-1.5 text-sm tracking-wide text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600
+}
+
 
 
 

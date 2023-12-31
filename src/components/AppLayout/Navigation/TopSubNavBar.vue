@@ -1,5 +1,5 @@
 <template>
-        <div class="sticky top-0 z-40 flex h-full shrink-0 items-center gap-x-4 border-b border-gray-200 bg-slate-50 px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
+        <div class="sticky top-0 z-40 flex h-full shrink-0 items-center gap-x-4 border-b xl:border-none  xl:border-transparent border-gray-200 bg-slate-50 xl:bg-transparent px-4 shadow-sm xl:shadow-none sm:gap-x-6 sm:px-6 lg:px-8">
           <button type="button" class="-m-2.5 p-2.5 text-gray-700 lg:hidden" @click="OPEN_NAVIGATION_MENU">
             <span class="sr-only">Open sidebar</span>
             <Bars3Icon class="h-6 w-6" aria-hidden="true" />

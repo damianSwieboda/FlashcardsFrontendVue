@@ -1,7 +1,14 @@
 /** @type {import('tailwindcss').Config} */
+import defaultTheme from 'tailwindcss/defaultTheme'
+
 module.exports = {
   content: ["./index.html", "./src/**/*.{vue, ts, js}"],
   theme: {
+    screens: {
+      '2xs':'370px',
+      'xs': '475px',
+      ...defaultTheme.screens,
+    },
     backgroundSize: {
       'auto': 'auto',
       'cover': 'cover',

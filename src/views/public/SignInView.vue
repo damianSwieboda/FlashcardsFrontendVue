@@ -1,9 +1,7 @@
 <template>
-    <the-sign-in/>
+  <the-sign-in />
 </template>
 
 <script lang="ts" setup>
-
-import TheSignIn from '@/components/SignIn/TheSignIn.vue';
-
+import TheSignIn from '@/components/Public/SignIn/TheSignIn.vue'
 </script>

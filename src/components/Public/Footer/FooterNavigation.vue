@@ -1,21 +1,47 @@
 <template>
-  <div class="flex space-x-6">
-    <a
-      v-for="item in navigation.social"
-      :key="item.name"
-      :href="item.href"
-      class="text-gray-500 hover:text-gray-400"
-    >
-      <span class="sr-only">{{ item.name }}</span>
-      <component :is="item.icon" class="h-6 w-6" aria-hidden="true" />
-    </a>
+  <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+    <div class="md:grid md:grid-cols-2 md:gap-8">
+      <navigation-column columnTitle="Solutions" :navigation="navigation.solutions" />
+      <navigation-column columnTitle="Support" :navigation="navigation.support" />
+    </div>
+
+    <div class="md:grid md:grid-cols-2 md:gap-8">
+      <navigation-column columnTitle="Company" :navigation="navigation.company" />
+      <navigation-column columnTitle="Legal" :navigation="navigation.legal" />
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { defineComponent, h } from 'vue'
 
+import NavigationColumn from '@/components/Public/Footer/NavigationColumn.vue'
+
 const navigation = {
+  solutions: [
+    { name: 'Marketing', href: '#' },
+    { name: 'Analytics', href: '#' },
+    { name: 'Commerce', href: '#' },
+    { name: 'Insights', href: '#' }
+  ],
+  support: [
+    { name: 'Pricing', href: '#' },
+    { name: 'Documentation', href: '#' },
+    { name: 'Guides', href: '#' },
+    { name: 'API Status', href: '#' }
+  ],
+  company: [
+    { name: 'About', href: '#' },
+    { name: 'Blog', href: '#' },
+    { name: 'Jobs', href: '#' },
+    { name: 'Press', href: '#' },
+    { name: 'Partners', href: '#' }
+  ],
+  legal: [
+    { name: 'Claim', href: '#' },
+    { name: 'Privacy', href: '#' },
+    { name: 'Terms', href: '#' }
+  ],
   social: [
     {
       name: 'Facebook',

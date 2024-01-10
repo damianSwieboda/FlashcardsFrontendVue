@@ -1,13 +1,10 @@
 <template>
-    <navigation-bar/>
-    <router-view/>
-    <TheFooter/>
-
+  <navigation-bar />
+  <router-view />
+  <TheFooter />
 </template>
 
 <script lang="ts" setup>
-
-import NavigationBar from '@/components/Navigation/NavigationBar.vue';
-import TheFooter from '@/components/Footer/TheFooter.vue'
-
+import NavigationBar from '@/components/Public/Navigation/NavigationBar.vue'
+import TheFooter from '@/components/Public/Footer/TheFooter.vue'
 </script>

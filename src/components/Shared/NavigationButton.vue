@@ -1,69 +1,60 @@
 <template>
-    <button :class="[buttonClassStyles]">
-        <span>
-                {{ text }}
-            <slot></slot>
-        </span> 
-    </button>
+  <button :class="[buttonClassStyles]">
+    <span>
+      {{ text }}
+      <slot></slot>
+    </span>
+  </button>
 </template>
 
 <script lang="ts" setup>
-    import { computed, toRefs} from "vue"
+import { computed, toRefs } from 'vue'
 
-    const props = defineProps({
-        text: {
-            required: true,
-            type: String
-        },
-        type: {
-            required: false,
-            type: String,
-            default: 'primary',
-            validator(value: string){
-                return ['primary', 'secondary'].includes(value)
-            }
-        }       
-    })
+const props = defineProps({
+  text: {
+    required: true,
+    type: String
+  },
+  type: {
+    required: false,
+    type: String,
+    default: 'primary',
+    validator(value: string) {
+      return ['primary', 'secondary'].includes(value)
+    }
+  }
+})
 
-    const { type } = toRefs(props)
+const { type } = toRefs(props)
 
-    const buttonClassStyles = computed(()=>{
-        return {
-            [type.value]: true
-        }
-    })
-
-
+const buttonClassStyles = computed(() => {
+  return {
+    [type.value]: true
+  }
+})
 </script>
 <style scoped>
-
-.primary{
-    @apply rounded-3xl bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600
+.primary {
+  @apply rounded-3xl bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600;
 }
 
-.navButton{
-    @apply inline-block w-9/12 lg:w-fit whitespace-nowrap overflow-hidden lg:px-8 rounded-3xl text-base font-semibold shadow-sm transition-transform transform hover:-translate-y-0.5
+.navButton {
+  @apply inline-block w-9/12 lg:w-fit whitespace-nowrap overflow-hidden lg:px-8 rounded-3xl text-base font-semibold shadow-sm transition-transform transform hover:-translate-y-0.5;
 }
 
-.plainText{
-    @apply text-sm font-semibold leading-6 text-gray-900
+.plainText {
+  @apply text-sm font-semibold leading-6 text-gray-900;
 }
 
-.plainTextBlack{
-    @apply text-sm font-semibold leading-6 text-gray-900
+.plainTextBlack {
+  @apply text-sm font-semibold leading-6 text-gray-900;
 }
 
-.plainTextWhite{
-    @apply text-sm font-semibold leading-6 text-white
+.plainTextWhite {
+  @apply text-sm font-semibold leading-6 text-white;
 }
 
-.dashboardHeroButton{
-    @apply rounded-3xl bg-purple-400 px-3.5 py-1.5 text-sm tracking-wide text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600
+.dashboardHeroButton {
+  @apply rounded-3xl bg-purple-400 px-3.5 py-1.5 text-sm tracking-wide text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600;
 }
-
-
-
-
-
 </style>
- 

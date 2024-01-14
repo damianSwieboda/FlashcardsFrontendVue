@@ -1,82 +1,88 @@
 <template>
-  <div class="grid grid-cols-4 grid-row-2 md:grid-rows-1 gap-4">
+  <div class="grid grid-cols-1 sm:grid-cols-3 grid-row-3 xs:grid-rows-1 gap-4 xs:gap-1 md:gap-2">
+    <!-- tiles -->
     <div
       :class="[tileContent.positionInGrid]"
       v-for="(tileContent, index) in tilesContent"
       :key="index"
     >
-      <RouterLink :to="tileContent.destination">
-        <div class="flex items-center rounded-2xl h-16 bg-slate-50">
-          <div
-            :class="[
-              tileContent.iconBackgroundColor,
-              'h-12',
-              'w-12',
-              'rounded-2xl',
-              'flex',
-              'items-center',
-              'justify-center',
-              'ml-2',
-              'mr-3'
-            ]"
-          >
-            <!-- here i need icon -->
-            <component :is="tileContent.icon" :class="[tileContent.iconColor, 'h-6', 'w-6']" />
+      <!-- tile content -->
+      <div class="rounded-2xl flex items-center justify-between h-16 bg-slate-50">
+        <RouterLink
+          :to="tileContent.destination"
+          class="w-full h-full flex items-center justify-between"
+        >
+          <div class="flex items-center h-full">
+            <div
+              :class="[
+                tileContent.iconBackgroundColor,
+                'h-12',
+                'w-12',
+                'rounded-2xl',
+                'flex',
+                'items-center',
+                'justify-center',
+                'ml-2',
+                'mr-3'
+              ]"
+            >
+              <component :is="tileContent.icon" :class="[tileContent.iconColor, 'h-6', 'w-6']" />
+            </div>
+            <div>
+              <p class="text-slate-400 text-sm">{{ tileContent.paragraph }}</p>
+              <h2 class="text-black font-medium">{{ tileContent.title }}</h2>
+            </div>
           </div>
-          <div>
-            <p class="text-blue-300 text-sm">{{ tileContent.paragraph }}</p>
-            <h2>{{ tileContent.title }}</h2>
+
+          <div class="mr-4">
+            <component :is="tileContent.moreInfoIcon" class="h-6 text-gray-400" />
           </div>
-        </div>
-      </RouterLink>
+        </RouterLink>
+
+        <!-- absolute content under div  -->
+      </div>
     </div>
   </div>
 </template>
+
 <script lang="ts" setup>
 import {
   Square2StackIcon,
   BuildingLibraryIcon,
-  BookOpenIcon,
-  PlusCircleIcon
+  PlusCircleIcon,
+  EllipsisVerticalIcon
 } from '@heroicons/vue/24/outline'
 
 const tilesContent = [
   {
     destination: '/app/dashboard',
-    title: 'In learn',
-    paragraph: '4 sets in total',
-    icon: BookOpenIcon,
-    iconColor: 'text-red-600',
-    iconBackgroundColor: 'bg-red-100',
-
-    positionInGrid: 'col-span-2 row-span-1 md:col-span-1'
-  },
-  {
-    destination: '/app/dashboard',
-    title: 'Library',
-    paragraph: '54 languages',
-    icon: BuildingLibraryIcon,
-    iconColor: 'text-green-600',
-    iconBackgroundColor: 'bg-green-100',
-    positionInGrid: 'col-span-2 col-start-3 row-span-1 md:col-span-1'
-  },
-  {
-    destination: '/app/dashboard',
-    title: 'Create',
-    paragraph: 'Lorem ipsum',
+    title: 'Stwórz zestaw',
+    paragraph: 'Kreator fiszek',
     icon: PlusCircleIcon,
     iconColor: 'text-blue-600',
     iconBackgroundColor: 'bg-blue-100',
-    positionInGrid: 'col-span-2 row-start-2 row-span-1 md:col-span-1 md:row-start-1'
+    positionInGrid: 'col-span-1 row-start-1 sm:col-start-1 sm:row-start-1',
+    moreInfoIcon: EllipsisVerticalIcon
   },
   {
     destination: '/app/dashboard',
-    title: 'Your sets',
-    paragraph: '3 sets',
+    title: 'Przeglądaj bibliotekę',
+    paragraph: 'Gotowe zestawy',
+    icon: BuildingLibraryIcon,
+    iconColor: 'text-green-600',
+    iconBackgroundColor: 'bg-green-100',
+    positionInGrid: 'col-span-1 row-start-2 sm:col-start-2 sm:row-start-1',
+    moreInfoIcon: EllipsisVerticalIcon
+  },
+  {
+    destination: '/app/dashboard',
+    title: 'Twoje zestawy',
+    paragraph: 'Przejrzyj swoje zestawy',
     icon: Square2StackIcon,
     iconColor: 'text-gray-600',
     iconBackgroundColor: 'bg-gray-200',
-    positionInGrid: 'col-span-2 col-start-3 row-start-2 row-span-1 md:col-span-1 md:row-start-1'
+    positionInGrid: 'col-span-1 row-start-3 sm:col-start-3 sm:row-start-1',
+    moreInfoIcon: EllipsisVerticalIcon
   }
 ]
 </script>

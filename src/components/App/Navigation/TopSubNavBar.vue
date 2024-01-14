@@ -1,6 +1,6 @@
 <template>
   <div
-    class="sticky top-0 z-40 flex h-full shrink-0 items-center gap-x-4 border-b xl:border-none xl:border-transparent border-gray-200 bg-slate-50 xl:bg-transparent px-4 shadow-sm xl:shadow-none sm:gap-x-6 sm:px-6 lg:px-8"
+    class="sticky top-0 z-40 flex h-full shrink-0 items-center gap-x-4 border-b lg:border-none lg:border-transparent border-gray-200 bg-slate-50 lg:bg-transparent px-4 shadow-sm lg:shadow-none sm:gap-x-6 sm:px-6 lg:px-8"
   >
     <button
       type="button"

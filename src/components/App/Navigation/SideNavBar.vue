@@ -32,12 +32,6 @@
                   aria-hidden="true"
                 />
                 {{ item.name }}
-                <span
-                  v-if="item.count"
-                  class="ml-auto w-9 min-w-max whitespace-nowrap rounded-full bg-white px-2.5 py-0.5 text-center text-xs font-medium leading-5 text-gray-600 ring-1 ring-inset ring-gray-200"
-                  aria-hidden="true"
-                  >{{ item.count }}</span
-                >
               </a>
             </li>
           </ul>
